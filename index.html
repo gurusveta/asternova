@@ -175,17 +175,10 @@
     letter-spacing: 0.01em;
   }
 
-  .how-visuals {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    margin-bottom: 64px;
-  }
-
-  .how-photo,
-  .how-scheme {
-    flex: 1;
-    min-width: 0;
+  /* Фото кубсата — одно, по центру, с ограничением ширины */
+  .how-photo {
+    margin: 0 auto 64px;
+    max-width: 720px;
   }
 
   .how-photo img {
@@ -196,41 +189,19 @@
     box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
   }
 
-  .how-photo-caption,
-  .how-scheme-caption {
+  .how-photo-caption {
     margin-top: 14px;
     font-size: 11px;
     letter-spacing: 0.25em;
     text-transform: uppercase;
     color: #8b93a7;
-  }
-
-  .how-scheme {
-    background: #0a0b10;
-    border: 1px solid #1a1c24;
-    border-radius: 4px;
-    padding: 28px 20px 24px;
-  }
-
-  .how-scheme svg {
-    display: block;
-    width: 100%;
-    height: auto;
+    text-align: center;
   }
 
   .how-steps {
     display: flex;
     flex-direction: column;
     gap: 36px;
-  }
-
-  .step-num {
-    display: block;
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0.3em;
-    color: #e63946;
-    margin-bottom: 10px;
   }
 
   .step-title {
@@ -255,12 +226,6 @@
 
     .how { padding: 96px 40px 120px; }
     .how-title { font-size: 34px; }
-
-    .how-visuals {
-      flex-direction: row;
-      gap: 40px;
-      align-items: flex-start;
-    }
 
     .how-steps {
       flex-direction: row;
@@ -312,125 +277,14 @@
         технически.
       </p>
 
-      <div class="how-visuals">
-
-        <div class="how-photo">
-          <img src="cubesat.jpg" alt="Кубсат на околоземной орбите">
-          <div class="how-photo-caption">CubeSat на околоземной орбите</div>
-        </div>
-
-        <div class="how-scheme">
-          <svg viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg"
-               aria-label="Схема отсека полезной нагрузки">
-
-            <defs>
-              <radialGradient id="cap" cx="0.35" cy="0.3" r="0.85">
-                <stop offset="0%"   stop-color="#2a2d38"/>
-                <stop offset="55%"  stop-color="#14161d"/>
-                <stop offset="100%" stop-color="#05060a"/>
-              </radialGradient>
-            </defs>
-
-            <rect x="20" y="20" width="380" height="240" rx="6"
-                  fill="#05060a" stroke="#3a3d47" stroke-width="1.5"/>
-
-            <rect x="36" y="36" width="348" height="208" rx="3"
-                  fill="none" stroke="#1a1c24" stroke-width="1"/>
-
-            <!-- Ряд 1 -->
-            <g transform="translate(90,90)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(154,90)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(218,90)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(282,90)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(346,90)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-
-            <!-- Ряд 2 -->
-            <g transform="translate(90,150)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(154,150)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(218,150)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(282,150)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(346,150)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-
-            <!-- Ряд 3 -->
-            <g transform="translate(90,210)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(154,210)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(218,210)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(282,210)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-            <g transform="translate(346,210)">
-              <rect x="-14" y="-24" width="28" height="48" rx="4"
-                    fill="url(#cap)" stroke="#2a2d38" stroke-width="0.8"/>
-              <circle cx="0" cy="6" r="2.5" fill="#e63946"/>
-            </g>
-
-          </svg>
-
-          <div class="how-scheme-caption">
-            Отсек полезной нагрузки · CubeSat 3U
-          </div>
-        </div>
-
+      <div class="how-photo">
+        <img src="cubesat.jpg" alt="Кубсат на околоземной орбите">
+        <div class="how-photo-caption">CubeSat на околоземной орбите</div>
       </div>
 
       <div class="how-steps">
 
         <div class="step">
-          <span class="step-num">01</span>
           <h3 class="step-title">Запуск</h3>
           <p class="step-text">
             В 2027 году ракета Falcon 9 компании SpaceX в рамках одной из миссий
@@ -439,7 +293,6 @@
         </div>
 
         <div class="step">
-          <span class="step-num">02</span>
           <h3 class="step-title">Кубсат</h3>
           <p class="step-text">
             CubeSat — сверхмалый искусственный спутник Земли, который собирают
@@ -449,7 +302,6 @@
         </div>
 
         <div class="step">
-          <span class="step-num">03</span>
           <h3 class="step-title">Орбита</h3>
           <p class="step-text">
             Достигнув заданной орбиты, кубсат отделяется от разгонного блока
