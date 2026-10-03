@@ -19,145 +19,7 @@
   }
 
   section[id] {
-    scroll-margin-top: 60px;
-  }
-
-  /* ===================== МЕНЮ ===================== */
-
-  .nav-toggle {
-    display: none;
-  }
-
-  .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px;
-    background: rgba(5, 6, 10, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .nav-logo {
-    font-size: 14px;
-    font-weight: 300;
-    letter-spacing: 0.3em;
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
-
-  .nav-logo .red-dot {
-    display: inline-block;
-    width: 4px;
-    height: 4px;
-    background: #e63946;
-    border-radius: 50%;
-    margin-left: 4px;
-    vertical-align: middle;
-    transform: translateY(-1px);
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #b8bfd0;
-    text-decoration: none;
-  }
-
-  .nav-links a:hover {
-    color: #fff;
-  }
-
-  /* Бургер */
-  .nav-burger {
-    display: none;
-    width: 28px;
-    height: 20px;
-    position: relative;
-    cursor: pointer;
-  }
-
-  .nav-burger span {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: #fff;
-    transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease;
-  }
-
-  .nav-burger span:nth-child(1) { top: 0; }
-  .nav-burger span:nth-child(2) { top: 9px; }
-  .nav-burger span:nth-child(3) { top: 18px; }
-
-  /* Мобильная версия */
-  @media (max-width: 819px) {
-    .nav-burger { display: block; }
-
-    .nav-links {
-      position: fixed;
-      top: 60px;
-      left: 0;
-      right: 0;
-      flex-direction: column;
-      gap: 0;
-      background: rgba(5, 6, 10, 0.98);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 8px 0;
-      transform: translateY(-110%);
-      transition: transform 0.3s ease;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .nav-links li {
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .nav-links li:last-child {
-      border-bottom: none;
-    }
-
-    .nav-links a {
-      display: block;
-      padding: 18px 24px;
-      font-size: 13px;
-      letter-spacing: 0.2em;
-    }
-
-    /* Открытие меню через чекбокс */
-    .nav-toggle:checked ~ .nav-links {
-      transform: translateY(0);
-    }
-
-    .nav-toggle:checked ~ .nav .nav-burger span:nth-child(1) {
-      top: 9px;
-      transform: rotate(45deg);
-    }
-
-    .nav-toggle:checked ~ .nav .nav-burger span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle:checked ~ .nav .nav-burger span:nth-child(3) {
-      top: 9px;
-      transform: rotate(-45deg);
-    }
+    scroll-margin-top: 20px;
   }
 
   /* ===================== HERO ===================== */
@@ -168,7 +30,7 @@
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    padding: 88px 24px 48px;
+    padding: 28px 24px 48px;
     overflow: hidden;
   }
 
@@ -210,7 +72,6 @@
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: auto;
-    visibility: hidden;
   }
 
   .logo .main {
@@ -894,7 +755,7 @@
   }
 
   @media (min-width: 820px) {
-    .hero { padding: 96px 40px 56px; }
+    .hero { padding: 36px 40px 56px; }
     .offer { font-size: 44px; max-width: 460px; }
 
     .how { padding: 96px 40px 120px; }
@@ -941,26 +802,6 @@
 </style>
 </head>
 <body>
-
-  <!-- ===================== МЕНЮ ===================== -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle">
-
-  <nav class="nav">
-    <a href="#" class="nav-logo">Asternova<span class="red-dot"></span></a>
-
-    <label for="nav-toggle" class="nav-burger" aria-label="Меню">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-  </nav>
-
-  <ul class="nav-links">
-    <li><a href="#how">Как это работает</a></li>
-    <li><a href="#path">Путь</a></li>
-    <li><a href="#price">Цена</a></li>
-    <li><a href="#faq">Вопросы</a></li>
-  </ul>
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
