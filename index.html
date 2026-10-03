@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asternova — Space Memorial</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: #05060a;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 24px 40px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 55% 70%;
+    filter: brightness(0.6) contrast(1.1);
+    display: block;
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(5, 6, 10, 0.95) 0%,
+      rgba(5, 6, 10, 0.6) 35%,
+      rgba(5, 6, 10, 0.15) 55%,
+      rgba(5, 6, 10, 0.55) 100%
+    );
+  }
+
+  .logo {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: auto;
+  }
+
+  .logo .main {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .logo .sub {
+    font-size: 6px;
+    letter-spacing: 0.6em;
+    color: #b8bfd0;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .red-dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: #e63946;
+    border-radius: 50%;
+    margin-left: 4px;
+    vertical-align: middle;
+    transform: translateY(-1px);
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+  }
+
+  .offer {
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 1.3;
+    color: #fff;
+    max-width: 320px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+  }
+
+  .offer .accent {
+    color: #e63946;
+  }
+
+  .cta {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 16px 34px;
+    background: #fff;
+    color: #05060a;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+  }
+
+  .cta:active { opacity: 0.7; }
+
+  .scroll-hint {
+    position: relative;
+    z-index: 2;
+    align-self: center;
+    margin-top: 24px;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: #8b93a7;
+    text-transform: uppercase;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+
+    <div class="hero-bg">
+      <img src="rocket.jpg" alt="Запуск ракеты">
+    </div>
+
+    <div class="logo">
+      <span class="main">Asternova<span class="red-dot"></span></span>
+      <span class="sub">Space Memorial</span>
+    </div>
+
+    <div class="content">
+      <h1 class="offer">
+        Память о близком — <span class="accent">на орбите</span> Земли
+      </h1>
+      <a href="#" class="cta">Обсудить</a>
+    </div>
+
+    <div class="scroll-hint">Вниз</div>
+
+  </section>
+
+</body>
+</html>
