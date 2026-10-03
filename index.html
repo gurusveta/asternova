@@ -7,11 +7,157 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   html, body {
     background: #05060a;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     color: #fff;
     -webkit-font-smoothing: antialiased;
+  }
+
+  section[id] {
+    scroll-margin-top: 60px;
+  }
+
+  /* ===================== МЕНЮ ===================== */
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: rgba(5, 6, 10, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-logo {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .nav-logo .red-dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background: #e63946;
+    border-radius: 50%;
+    margin-left: 4px;
+    vertical-align: middle;
+    transform: translateY(-1px);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #b8bfd0;
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    color: #fff;
+  }
+
+  /* Бургер */
+  .nav-burger {
+    display: none;
+    width: 28px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .nav-burger span {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #fff;
+    transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease;
+  }
+
+  .nav-burger span:nth-child(1) { top: 0; }
+  .nav-burger span:nth-child(2) { top: 9px; }
+  .nav-burger span:nth-child(3) { top: 18px; }
+
+  /* Мобильная версия */
+  @media (max-width: 819px) {
+    .nav-burger { display: block; }
+
+    .nav-links {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(5, 6, 10, 0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 8px 0;
+      transform: translateY(-110%);
+      transition: transform 0.3s ease;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-links li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 18px 24px;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+    }
+
+    /* Открытие меню через чекбокс */
+    .nav-toggle:checked ~ .nav-links {
+      transform: translateY(0);
+    }
+
+    .nav-toggle:checked ~ .nav .nav-burger span:nth-child(1) {
+      top: 9px;
+      transform: rotate(45deg);
+    }
+
+    .nav-toggle:checked ~ .nav .nav-burger span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle:checked ~ .nav .nav-burger span:nth-child(3) {
+      top: 9px;
+      transform: rotate(-45deg);
+    }
   }
 
   /* ===================== HERO ===================== */
@@ -22,7 +168,7 @@
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    padding: 28px 24px 48px;
+    padding: 88px 24px 48px;
     overflow: hidden;
   }
 
@@ -64,6 +210,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: auto;
+    visibility: hidden;
   }
 
   .logo .main {
@@ -500,8 +647,254 @@
     max-width: 640px;
   }
 
+  /* ============ СЕКЦИЯ "ВОПРОСЫ" (FAQ) ============ */
+
+  .faq {
+    background: #05060a;
+    padding: 72px 24px 88px;
+    border-top: 1px solid #1a1c24;
+  }
+
+  .faq-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-title {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .faq-title .accent { color: #e63946; }
+
+  .faq-lead {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #b8bfd0;
+    margin-bottom: 48px;
+    letter-spacing: 0.01em;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-top: 1px solid #1a1c24;
+  }
+
+  .faq-item:last-child {
+    border-bottom: 1px solid #1a1c24;
+  }
+
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 24px 40px 24px 0;
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #fff;
+    letter-spacing: 0.01em;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    font-weight: 300;
+    color: #8b93a7;
+    line-height: 1;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .faq-item[open] summary::after {
+    content: '−';
+    color: #e63946;
+  }
+
+  .faq-item p {
+    padding: 0 40px 24px 0;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #b8bfd0;
+  }
+
+  /* ============ СЕКЦИЯ "ОБСУДИТЬ" (ФОРМА) ============ */
+
+  .contact {
+    background: #05060a;
+    padding: 88px 24px 96px;
+    border-top: 1px solid #1a1c24;
+    text-align: center;
+  }
+
+  .contact-inner {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #fff;
+    margin-bottom: 16px;
+    letter-spacing: 0.01em;
+  }
+
+  .contact-title .accent { color: #e63946; }
+
+  .contact-lead {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #b8bfd0;
+    margin-bottom: 48px;
+    letter-spacing: 0.01em;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-field label {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #8b93a7;
+  }
+
+  .form-field input {
+    padding: 16px 18px;
+    background: #0a0b10;
+    border: 1px solid #2a2d38;
+    border-radius: 2px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 300;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-field input:focus {
+    outline: none;
+    border-color: #e63946;
+  }
+
+  .form-field input::placeholder {
+    color: #5a6172;
+  }
+
+  .form-submit {
+    margin-top: 12px;
+    padding: 20px 38px;
+    background: #fff;
+    color: #05060a;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .form-submit:active { opacity: 0.7; }
+
+  .contact-note {
+    margin-top: 24px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #8b93a7;
+  }
+
+  /* ============ ФУТЕР ============ */
+
+  .footer {
+    background: #05060a;
+    padding: 56px 24px 40px;
+    border-top: 1px solid #1a1c24;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-brand .name {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-block;
+  }
+
+  .footer-brand .sub {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: #8b93a7;
+    text-transform: uppercase;
+    margin-top: 8px;
+    display: block;
+  }
+
+  .footer-info {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #b8bfd0;
+  }
+
+  .footer-info a {
+    color: #d8dde8;
+    text-decoration: none;
+  }
+
+  .footer-info a:hover {
+    color: #fff;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    font-weight: 300;
+    color: #5a6172;
+    letter-spacing: 0.05em;
+  }
+
   @media (min-width: 820px) {
-    .hero { padding: 36px 40px 56px; }
+    .hero { padding: 96px 40px 56px; }
     .offer { font-size: 44px; max-width: 460px; }
 
     .how { padding: 96px 40px 120px; }
@@ -530,10 +923,44 @@
 
     .plan-price { font-size: 46px; }
     .plan-price .currency { font-size: 30px; }
+
+    .faq { padding: 96px 40px 120px; }
+    .faq-title { font-size: 34px; }
+
+    .contact { padding: 120px 40px 128px; }
+    .contact-title { font-size: 40px; }
+
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .footer-info { text-align: right; }
   }
 </style>
 </head>
 <body>
+
+  <!-- ===================== МЕНЮ ===================== -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+  <nav class="nav">
+    <a href="#" class="nav-logo">Asternova<span class="red-dot"></span></a>
+
+    <label for="nav-toggle" class="nav-burger" aria-label="Меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </nav>
+
+  <ul class="nav-links">
+    <li><a href="#how">Как это работает</a></li>
+    <li><a href="#path">Путь</a></li>
+    <li><a href="#price">Цена</a></li>
+    <li><a href="#faq">Вопросы</a></li>
+  </ul>
 
   <!-- ===================== HERO ===================== -->
   <section class="hero">
@@ -554,13 +981,13 @@
       <p class="sub-offer">
         Сервис отправки праха усопшего на околоземную орбиту
       </p>
-      <a href="#" class="cta">Обсудить</a>
+      <a href="#contact" class="cta">Обсудить</a>
     </div>
 
   </section>
 
   <!-- ============ СЕКЦИЯ "КАК ПРАХ ПОПАДАЕТ НА ОРБИТУ" ============ -->
-  <section class="how">
+  <section class="how" id="how">
     <div class="how-inner">
 
       <h2 class="how-title">
@@ -614,7 +1041,7 @@
   </section>
 
   <!-- ============ СЕКЦИЯ "КАК К НАМ ПОПАСТЬ" ============ -->
-  <section class="path">
+  <section class="path" id="path">
     <div class="path-inner">
 
       <h2 class="path-title">
@@ -718,14 +1145,14 @@
       </div>
 
       <div class="path-cta-wrap">
-        <a href="#" class="path-cta">Обсудить</a>
+        <a href="#contact" class="path-cta">Обсудить</a>
       </div>
 
     </div>
   </section>
 
   <!-- ============ СЕКЦИЯ "СКОЛЬКО ЭТО СТОИТ" ============ -->
-  <section class="price">
+  <section class="price" id="price">
     <div class="price-inner">
 
       <h2 class="price-title">
@@ -748,7 +1175,7 @@
             <li>Именной сертификат на бумаге ручного отлива</li>
             <li>Список документов для самостоятельного сбора</li>
           </ul>
-          <a href="#" class="plan-cta">Обсудить</a>
+          <a href="#contact" class="plan-cta">Обсудить</a>
         </div>
 
         <div class="plan featured">
@@ -763,7 +1190,7 @@
             <li>Видео старта ракеты</li>
             <li>Список документов для самостоятельного сбора</li>
           </ul>
-          <a href="#" class="plan-cta">Обсудить</a>
+          <a href="#contact" class="plan-cta">Обсудить</a>
         </div>
 
         <div class="plan">
@@ -778,7 +1205,7 @@
             <li>Видео старта ракеты</li>
             <li>Именной сертификат — гравировка на нержавеющей стали</li>
           </ul>
-          <a href="#" class="plan-cta">Обсудить</a>
+          <a href="#contact" class="plan-cta">Обсудить</a>
         </div>
 
       </div>
@@ -791,6 +1218,158 @@
 
     </div>
   </section>
+
+  <!-- ============ СЕКЦИЯ "ВОПРОСЫ" (FAQ) ============ -->
+  <section class="faq" id="faq">
+    <div class="faq-inner">
+
+      <h2 class="faq-title">
+        Частые <span class="accent">вопросы</span>
+      </h2>
+
+      <p class="faq-lead">
+        Собрали то, что нам задают чаще всего. Если вашего вопроса здесь нет —
+        напишите, ответим лично.
+      </p>
+
+      <div class="faq-list">
+
+        <details class="faq-item">
+          <summary>Какие документы нужны?</summary>
+          <p>
+            Стандартный пакет: свидетельство о смерти, документ, подтверждающий
+            родство или право распоряжения прахом, и ваше удостоверение личности.
+            Точный список мы присылаем после заявки — он зависит от страны
+            и региона.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Можно ли отправить прах не родственника?</summary>
+          <p>
+            Да, если у вас есть законное право распоряжения прахом — например,
+            по завещанию или доверенности. Мы попросим подтверждающие документы.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Что если запуск перенесётся?</summary>
+          <p>
+            Такое возможно — даты зависят от оператора запуска и погодных условий.
+            Если запуск сдвигается, мы сообщаем вам новую дату и сохраняем место
+            на кубсате.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Как я узнаю, что капсула на орбите?</summary>
+          <p>
+            После вывода спутника мы присылаем сертификат с параметрами орбиты,
+            фотографию капсулы внутри кубсата и ссылку на трекинг спутника.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Можно ли вернуть прах?</summary>
+          <p>
+            До момента передачи капсулы оператору запуска — да. После этого
+            капсула становится частью полезной нагрузки, и вернуть её невозможно.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Что происходит с кубсатом через пять лет?</summary>
+          <p>
+            Под влиянием притяжения Земли спутник постепенно сходит с орбиты
+            и возвращается в атмосферу. Это естественный и контролируемый
+            процесс — на орбите не остаётся космического мусора.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Как передать прах вам?</summary>
+          <p>
+            В тарифе «Стандарт» и «Премиум» — курьерской службой по инструкции,
+            которую мы пришлём. В тарифе «Персональный» — наш представитель
+            приезжает лично и забирает капсулу.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Есть ли ограничения по религии?</summary>
+          <p>
+            Мы работаем с семьями разных конфессий и учитываем пожелания,
+            если они не противоречат техническим требованиям запуска. Если
+            у вас есть особые обстоятельства — обсудим индивидуально.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ СЕКЦИЯ "ОБСУДИТЬ" (ФОРМА) ============ -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+
+      <h2 class="contact-title">
+        Готовы <span class="accent">обсудить</span>?
+      </h2>
+
+      <p class="contact-lead">
+        Оставьте контакты — мы свяжемся в течение суток, ответим на вопросы
+        и поможем выбрать формат.
+      </p>
+
+      <form class="contact-form" action="#" method="post">
+        <div class="form-field">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 900 000 00 00" required>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="name@example.com" required>
+        </div>
+
+        <button type="submit" class="form-submit">Отправить</button>
+      </form>
+
+      <p class="contact-note">
+        Нажимая «Отправить», вы соглашаетесь на обработку персональных данных.
+        Мы не передаём их третьим лицам.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ============ ФУТЕР ============ -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <span class="name">Asternova<span class="red-dot"></span></span>
+        <span class="sub">Space Memorial</span>
+      </div>
+
+      <div class="footer-info">
+        1201 Orbit Avenue, Suite 400<br>
+        Houston, TX 77058, USA<br>
+        <a href="mailto:hello@asternova.space">hello@asternova.space</a>
+      </div>
+
+      <div class="footer-copy">
+        © 2026 Asternova. Все права защищены.
+      </div>
+
+    </div>
+  </footer>
 
 </body>
 </html>
