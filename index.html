@@ -16,11 +16,11 @@
 
   .hero {
     position: relative;
-    min-height: 100vh;      /* фолбэк */
-    min-height: 100svh;     /* мобильные: не режется адресной строкой */
+    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     flex-direction: column;
-    padding: 28px 24px 40px;
+    padding: 28px 24px 48px;
     overflow: hidden;
   }
 
@@ -40,7 +40,6 @@
     display: block;
   }
 
-  /* Затемнение: верх под логотип, низ — почти чёрный под текст */
   .hero-bg::after {
     content: '';
     position: absolute;
@@ -62,6 +61,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: auto;   /* ВЕРНУЛ: прижимает текст с кнопкой к низу */
   }
 
   .logo .main {
@@ -93,15 +93,12 @@
     transform: translateY(-1px);
   }
 
-  /* .content растягивается, кнопка прижимается к низу */
   .content {
     position: relative;
     z-index: 2;
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 0;
   }
 
   .offer {
@@ -129,10 +126,9 @@
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
   }
 
-  /* Кнопка уезжает в самый низ .content */
   .cta {
     display: inline-block;
-    margin-top: auto;
+    margin-top: 44px;   /* БЫЛО 30px — сдвинул кнопку ниже */
     padding: 18px 38px;
     background: #fff;
     color: #05060a;
