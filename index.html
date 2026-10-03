@@ -251,7 +251,6 @@
     letter-spacing: 0.01em;
   }
 
-  /* Вертикальный маршрут */
   .path-list {
     position: relative;
     display: flex;
@@ -259,7 +258,6 @@
     gap: 40px;
   }
 
-  /* Вертикальная линия-маршрут слева */
   .path-list::before {
     content: '';
     position: absolute;
@@ -348,6 +346,160 @@
 
   .path-cta:active { opacity: 0.7; }
 
+  /* ============ СЕКЦИЯ "СКОЛЬКО ЭТО СТОИТ" ============ */
+
+  .price {
+    background: #05060a;
+    padding: 72px 24px 88px;
+    border-top: 1px solid #1a1c24;
+  }
+
+  .price-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .price-title {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+
+  .price-title .accent { color: #e63946; }
+
+  .price-lead {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #b8bfd0;
+    max-width: 640px;
+    margin-bottom: 56px;
+    letter-spacing: 0.01em;
+  }
+
+  .price-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .plan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #0a0b10;
+    border: 1px solid #2a2d38;
+    border-radius: 6px;
+    padding: 32px 28px 28px;
+  }
+
+  .plan.featured {
+    border-color: #e63946;
+  }
+
+  .plan-badge {
+    position: absolute;
+    top: -10px;
+    left: 28px;
+    padding: 4px 12px;
+    background: #e63946;
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  .plan-name {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8b93a7;
+    margin-bottom: 20px;
+  }
+
+  .plan-price {
+    display: flex;
+    align-items: baseline;
+    font-size: 40px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 28px;
+    white-space: nowrap;
+  }
+
+  .plan-price .currency {
+    font-size: 26px;
+    font-weight: 300;
+    color: #b8bfd0;
+    margin-left: 8px;
+  }
+
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex: 1;
+  }
+
+  .plan-features li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #d8dde8;
+  }
+
+  .plan-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 8px;
+    height: 1px;
+    background: #e63946;
+  }
+
+  .plan-cta {
+    display: inline-block;
+    padding: 16px 24px;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #3a3d47;
+    border-radius: 2px;
+  }
+
+  .plan-cta:active { opacity: 0.7; }
+
+  .plan.featured .plan-cta {
+    background: #fff;
+    color: #05060a;
+    border-color: #fff;
+  }
+
+  .price-note {
+    margin-top: 32px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: #8b93a7;
+    max-width: 640px;
+  }
+
   @media (min-width: 820px) {
     .hero { padding: 36px 40px 56px; }
     .offer { font-size: 44px; max-width: 460px; }
@@ -364,6 +516,20 @@
 
     .path { padding: 96px 40px 120px; }
     .path-title { font-size: 34px; }
+
+    .price { padding: 96px 40px 120px; }
+    .price-title { font-size: 34px; }
+
+    .price-cards {
+      flex-direction: row;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .plan { flex: 1; }
+
+    .plan-price { font-size: 46px; }
+    .plan-price .currency { font-size: 30px; }
   }
 </style>
 </head>
@@ -462,7 +628,6 @@
 
       <div class="path-list">
 
-        <!-- 01. Заявка -->
         <div class="path-step">
           <div class="path-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -479,7 +644,6 @@
           </div>
         </div>
 
-        <!-- 02. Договор -->
         <div class="path-step">
           <div class="path-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -498,7 +662,6 @@
           </div>
         </div>
 
-        <!-- 03. Капсула и документы -->
         <div class="path-step">
           <div class="path-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -517,7 +680,6 @@
           </div>
         </div>
 
-        <!-- 04. Подготовка к запуску -->
         <div class="path-step">
           <div class="path-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -534,7 +696,6 @@
           </div>
         </div>
 
-        <!-- 05. Орбита -->
         <div class="path-step">
           <div class="path-icon">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -559,6 +720,74 @@
       <div class="path-cta-wrap">
         <a href="#" class="path-cta">Обсудить</a>
       </div>
+
+    </div>
+  </section>
+
+  <!-- ============ СЕКЦИЯ "СКОЛЬКО ЭТО СТОИТ" ============ -->
+  <section class="price">
+    <div class="price-inner">
+
+      <h2 class="price-title">
+        Сколько это <span class="accent">стоит</span>
+      </h2>
+
+      <p class="price-lead">
+        Три формата участия. Во всех тарифах — индивидуальная капсула,
+        размещение на кубсате Remembrance и именной сертификат.
+      </p>
+
+      <div class="price-cards">
+
+        <div class="plan">
+          <div class="plan-name">Стандарт</div>
+          <div class="plan-price">490 000<span class="currency">₽</span></div>
+          <ul class="plan-features">
+            <li>Индивидуальная капсула</li>
+            <li>Размещение на кубсате Remembrance</li>
+            <li>Именной сертификат на бумаге ручного отлива</li>
+            <li>Список документов для самостоятельного сбора</li>
+          </ul>
+          <a href="#" class="plan-cta">Обсудить</a>
+        </div>
+
+        <div class="plan featured">
+          <div class="plan-badge">Популярный</div>
+          <div class="plan-name">Премиум</div>
+          <div class="plan-price">695 000<span class="currency">₽</span></div>
+          <ul class="plan-features">
+            <li>Индивидуальная капсула с гравировкой имени</li>
+            <li>Размещение на кубсате Remembrance</li>
+            <li>Именной сертификат — гравировка на спиле дерева благородных пород</li>
+            <li>Видео размещения капсулы на кубсате</li>
+            <li>Видео старта ракеты</li>
+            <li>Список документов для самостоятельного сбора</li>
+          </ul>
+          <a href="#" class="plan-cta">Обсудить</a>
+        </div>
+
+        <div class="plan">
+          <div class="plan-name">Персональный</div>
+          <div class="plan-price">1 360 000<span class="currency">₽</span></div>
+          <ul class="plan-features">
+            <li>Индивидуальная капсула с гравировкой имени</li>
+            <li>Размещение на кубсате Remembrance</li>
+            <li>Доставка и забор капсулы представителем</li>
+            <li>Сбор документов нашими силами</li>
+            <li>Видео размещения капсулы на кубсате</li>
+            <li>Видео старта ракеты</li>
+            <li>Именной сертификат — гравировка на нержавеющей стали</li>
+          </ul>
+          <a href="#" class="plan-cta">Обсудить</a>
+        </div>
+
+      </div>
+
+      <p class="price-note">
+        Цена окончательная, включает все этапы. Оплата в два этапа:
+        предоплата после заключения договора и остаток — перед подготовкой
+        кубсата к запуску.
+      </p>
 
     </div>
   </section>
