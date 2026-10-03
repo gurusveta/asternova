@@ -16,10 +16,11 @@
 
   .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 100vh;      /* фолбэк */
+    min-height: 100svh;     /* мобильные: не режется адресной строкой */
     display: flex;
     flex-direction: column;
-    padding: 28px 24px 40px;
+    padding: 28px 24px 32px;
     overflow: hidden;
   }
 
@@ -34,21 +35,24 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 60%;
-    filter: brightness(1.3) contrast(1.15);
+    object-position: 50% 40%;
+    filter: brightness(1.25) contrast(1.15);
     display: block;
   }
 
+  /* Затемнение: верх под логотип, низ — почти чёрный под текст */
   .hero-bg::after {
     content: '';
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(5, 6, 10, 0.85) 0%,
-      rgba(5, 6, 10, 0.35) 25%,
-      rgba(5, 6, 10, 0) 50%,
-      rgba(5, 6, 10, 0.65) 100%
+      rgba(5, 6, 10, 0.75) 0%,
+      rgba(5, 6, 10, 0.25) 22%,
+      rgba(5, 6, 10, 0.10) 40%,
+      rgba(5, 6, 10, 0.75) 62%,
+      rgba(5, 6, 10, 0.94) 82%,
+      rgba(5, 6, 10, 0.98) 100%
     );
   }
 
@@ -67,6 +71,7 @@
     letter-spacing: 0.3em;
     color: #fff;
     text-transform: uppercase;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.9);
   }
 
   .logo .sub {
@@ -75,6 +80,7 @@
     color: #d0d5e0;
     text-transform: uppercase;
     margin-top: 8px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
   }
 
   .red-dot {
@@ -94,17 +100,17 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-bottom: 120px;
+    padding-bottom: 48px;
   }
 
   .offer {
-    font-size: 38px;
+    font-size: 34px;
     font-weight: 300;
-    line-height: 1.15;
+    line-height: 1.18;
     color: #fff;
-    max-width: 340px;
+    max-width: 320px;
     letter-spacing: -0.01em;
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.95);
   }
 
   .offer .accent {
@@ -116,15 +122,15 @@
     font-size: 14px;
     font-weight: 300;
     line-height: 1.5;
-    color: #b8bfd0;
+    color: #c8cedd;
     max-width: 300px;
     letter-spacing: 0.02em;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
   }
 
   .cta {
     display: inline-block;
-    margin-top: 32px;
+    margin-top: 30px;
     padding: 18px 38px;
     background: #fff;
     color: #05060a;
@@ -134,7 +140,7 @@
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 2px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
   }
 
   .cta:active { opacity: 0.7; }
@@ -143,7 +149,7 @@
     position: relative;
     z-index: 2;
     align-self: center;
-    margin-top: 24px;
+    margin-top: 20px;
     font-size: 10px;
     letter-spacing: 0.4em;
     color: #8b93a7;
@@ -172,7 +178,7 @@
 
     <div class="content">
       <h1 class="offer">
-        Память о близком — <span class="accent">на орбите</span> Земли
+        Память о близком —<br><span class="accent">на орбите</span> Земли
       </h1>
       <p class="sub-offer">
         Сервис отправки праха усопшего на околоземную орбиту
